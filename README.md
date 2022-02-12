@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Eslint and Prettier setup
+
+[Tutorial](https://dev.to/knowankit/setup-eslint-and-prettier-in-react-app-357b)
+npm install eslint --save-dev
+npx eslint --init
+npm install eslint-config-prettier eslint-plugin-prettier prettier --save-dev
+
 ## Available Scripts
 
 In the project directory, you can run:
