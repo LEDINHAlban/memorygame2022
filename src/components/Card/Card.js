@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import PropTypes from 'prop-types'
-import { CardsContext } from '../../context'
 import './Card.css'
 import * as global from '../../utils/global'
 import reactIcon from '../../assets/deck/reactIcon.png'
@@ -10,12 +9,9 @@ import nodeIcon from '../../assets/deck/nodeIcon.png'
 
 export default function Card({ name }) {
   const [clicked, setClicked] = useState(false)
-  const cardsFlipped = useContext(CardsContext)
-  const { dispatchCardsEvent } = useContext(CardsContext)
 
   const handleClick = () => {
     setClicked(true)
-    dispatchCardsEvent('CARD_FLIPPED', name)
   }
 
   let cardName
