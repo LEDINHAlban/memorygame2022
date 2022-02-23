@@ -7,15 +7,16 @@ import reactIcon from '../../assets/deck/reactIcon.png'
 import vueIcon from '../../assets/deck/vueIcon.png'
 import nodeIcon from '../../assets/deck/nodeIcon.png'
 
-export default function Card({ name }) {
+export default function Card({ card, index, cardFlipped }) {
   const [clicked, setClicked] = useState(false)
 
   const handleClick = () => {
     setClicked(true)
+    cardFlipped(index)
   }
 
   let cardName
-  switch (name) {
+  switch (card.name) {
     case global.NODE_ICON:
       cardName = nodeIcon
       break
@@ -46,5 +47,7 @@ export default function Card({ name }) {
 }
 
 Card.propTypes = {
-  name: PropTypes.string.isRequired
+  card: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+  cardFlipped: PropTypes.func.isRequired
 }
