@@ -1,18 +1,15 @@
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button'
+import React from 'react'
 import PropTypes from 'prop-types'
+import Button from 'react-bootstrap/Button'
 import './Card.css'
 import * as global from '../../utils/global'
 import reactIcon from '../../assets/deck/reactIcon.png'
 import vueIcon from '../../assets/deck/vueIcon.png'
 import nodeIcon from '../../assets/deck/nodeIcon.png'
 
-export default function Card({ card, index, cardFlipped }) {
-  const [clicked, setClicked] = useState(false)
-
+export default function Card({ card, cardHasFlipped }) {
   const handleClick = () => {
-    setClicked(true)
-    cardFlipped(index)
+    cardHasFlipped()
   }
 
   let cardName
@@ -29,7 +26,7 @@ export default function Card({ card, index, cardFlipped }) {
     default:
       break
   }
-  if (clicked) {
+  if (card.flipped === true) {
     return (
       <>
         <Button className="card">
@@ -48,6 +45,5 @@ export default function Card({ card, index, cardFlipped }) {
 
 Card.propTypes = {
   card: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired,
-  cardFlipped: PropTypes.func.isRequired
+  cardHasFlipped: PropTypes.func.isRequired
 }

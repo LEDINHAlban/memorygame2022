@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import MemoryGame from './pages/MemoryGame/MemoryGame'
 import './App.css'
-import Play from './components/Play/Play'
 
 function App() {
   return (
     <div className="App">
-      <Play numberOfIcons={3} />
+      <MemoryGame />
     </div>
   )
 }
