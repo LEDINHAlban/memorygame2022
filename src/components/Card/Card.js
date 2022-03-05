@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from 'react-bootstrap/Button'
-import './Card.css'
 import * as global from '../../utils/global'
+import { styles } from './Card.style'
+
+// icons
 import reactIcon from '../../assets/deck/reactIcon.png'
 import vueIcon from '../../assets/deck/vueIcon.png'
 import nodeIcon from '../../assets/deck/nodeIcon.png'
@@ -26,18 +28,19 @@ export default function Card({ card, cardHasFlipped }) {
     default:
       break
   }
+
   if (card.flipped === true) {
     return (
       <>
-        <Button className="card">
-          <img className="card-logo" src={cardName} alt="Logo" />
+        <Button style={styles.card} variant="light">
+          <img style={styles.icon} src={cardName} alt="Logo" />
         </Button>
       </>
     )
   } else {
     return (
       <>
-        <Button className="card" onClick={() => handleClick()}></Button>
+        <Button style={styles.card} variant="light" onClick={() => handleClick()}></Button>
       </>
     )
   }

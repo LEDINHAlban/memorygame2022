@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Card from '../Card/Card'
 import { shuffleArray } from '../../utils/shuffleArray'
 import * as global from '../../utils/global'
+import { Container, Row, Col } from 'react-bootstrap'
 
 export default function Play({ setEndGame, tryAgain, setTryAgain }) {
   const [cardNamesShuffle, setCardNamesShuffle] = useState([])
@@ -40,16 +41,22 @@ export default function Play({ setEndGame, tryAgain, setTryAgain }) {
 
   return cardNamesShuffle.map((el, index) => {
     return (
-      <Card
-        key={`${index} ${el.name}`}
-        card={el}
-        index={index}
-        cardHasFlipped={() => {
-          cardNamesShuffleTmp[index].flipped = true
-          setCardNamesShuffle(cardNamesShuffleTmp)
-          lastTwoCardsFlipped.current.push(cardNamesShuffleTmp[index])
-        }}
-      />
+      <Container key={index}>
+        <Row xs={2} md={1}>
+          <Col>
+            <Card
+              key={`${index} ${el.name}`}
+              card={el}
+              index={index}
+              cardHasFlipped={() => {
+                cardNamesShuffleTmp[index].flipped = true
+                setCardNamesShuffle(cardNamesShuffleTmp)
+                lastTwoCardsFlipped.current.push(cardNamesShuffleTmp[index])
+              }}
+            />
+          </Col>
+        </Row>
+      </Container>
     )
   })
 }
